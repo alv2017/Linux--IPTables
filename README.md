@@ -19,7 +19,7 @@ This command should return a list of rules for the IPv6
 
 ### Attention Ubuntu Users
 
-Initially Ubuntu systems do not have any IPTables rules set, so the machine is wide open,
+Initially Ubuntu systems do not have any IPTables rule set, so the machine is wide open,
 and it is Ubuntu user's responsibility to set the rules up.
 
 ### IPv4 Basic Rules Explained
@@ -27,6 +27,10 @@ and it is Ubuntu user's responsibility to set the rules up.
 a) Allow traffic for the loopback interface:
 
 **-A INPUT -i lo -j ACCEPT**
+
+In Ubuntu in order to enter IPTables rule you need to use the following command:
+
+$ sudo iptables -A INPUT -i lo -j ACCEPT
 
 Explanation: -A INPUT means that we want to place the rule at the end of the INPUT chain (i.e. incoming traffic chain); -i is interface; lo translates to loopback; -j means jump; ACCEPT means that we want to allow the traffic.
 
