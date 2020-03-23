@@ -98,7 +98,7 @@ This is a set of rules that we have set so far:
 **-I INPUT 9 -p icmp -m conntrack --ctstate NEW,RELATED,ESTABLISHED -m icmp --icmp-type 12 -j ACCEPT**
 
 Explanation: ...and a couple of new things here:
--I INPUT 5 tells to insert the rule into the INPUT chain at the position 5;
+-I INPUT 5 tells to insert the rule into the INPUT chain at the position 6;
 -p icmp - tells that the rule is related to ICMP traffic;
 -m icpmp - tells to use icmp module; --icmp-type 3 - tells that rule regulates ICMP messages of type 3.
 
