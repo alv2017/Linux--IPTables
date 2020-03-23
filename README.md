@@ -52,7 +52,6 @@ e) Block everything that is not allowed:
 
 **-A INPUT -j DROP**
 
-
 ### IPv4: Blocking ICMP with IPTables
 
 The conventional wisdom says that we need to block all the packets
@@ -87,8 +86,11 @@ This is a set of rules that we have set so far:
 ... and the ICMP rules are listed below
 
 **-I INPUT 6 -p icmp -m conntrack --ctstate NEW,RELATED,ESTABLISHED -m icmp --icmp-type 3 -j ACCEPT**
+
 **-I INPUT 7 -p icmp -m conntrack --ctstate NEW,RELATED,ESTABLISHED -m icmp --icmp-type 4 -j ACCEPT**
+
 **-I INPUT 8 -p icmp -m conntrack --ctstate NEW,RELATED,ESTABLISHED -m icmp --icmp-type 11 -j ACCEPT**
+
 **-I INPUT 9 -p icmp -m conntrack --ctstate NEW,RELATED,ESTABLISHED -m icmp --icmp-type 12 -j ACCEPT**
 
 Explanation: ...and a couple of new things here:
