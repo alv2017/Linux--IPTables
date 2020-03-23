@@ -1,0 +1,12 @@
+# Basic rules for IPv4 protocol
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [601:66053]
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p icmp -m conntrack --ctstate NEW,RELATED,ESTABLISHED -m icmp --icmp-type 3 -j ACCEPT
+-A INPUT -p icmp -m conntrack --ctstate NEW,RELATED,ESTABLISHED -m icmp --icmp-type 11 -j ACCEPT
+-A INPUT -p icmp -m conntrack --ctstate NEW,RELATED,ESTABLISHED -m icmp --icmp-type 12 -j ACCEPT
+-A INPUT -j DROP
+COMMIT
